@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="mapas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2BS-B3-Itm">
+                                <rect key="frame" x="0.0" y="151" width="414" height="652"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="652" id="Qdl-MF-er1"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Lg8-xv-Txq"/>
+                                </connections>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kfh-D9-FKa">
+                                <rect key="frame" x="101" y="115" width="212" height="29"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="clickSegmentedControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="QJr-DH-hT2"/>
+                                </connections>
+                            </segmentedControl>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="c2O-gF-71y">
+                                <rect key="frame" x="10" y="46" width="394" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="c2O-gF-71y" secondAttribute="height" multiplier="197:28" id="B9t-7W-WuB"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="amV-KS-jyI"/>
+                                </connections>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjw-Ig-AkS">
+                                <rect key="frame" x="60" y="161" width="294" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pjw-Ig-AkS" secondAttribute="height" multiplier="147:32" id="ZhQ-hC-eey"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhW-QA-OCm">
+                                <rect key="frame" x="20" y="820" width="88" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AhW-QA-OCm" secondAttribute="height" multiplier="44:15" id="RtW-yI-cWi"/>
+                                </constraints>
+                                <state key="normal" title="Onde Estou?"/>
+                                <connections>
+                                    <action selector="ondeEstou:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vRA-ag-gGy"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7Pl-45-PUu">
+                                <rect key="frame" x="226" y="820" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7Pl-45-PUu" secondAttribute="height" multiplier="49:31" id="ljJ-vs-qMY"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="directionsOn:" destination="BYZ-38-t0r" eventType="valueChanged" id="eZN-rq-UDe"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJZ-Yp-O7L">
+                                <rect key="frame" x="135" y="816" width="77.5" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qJZ-Yp-O7L" secondAttribute="height" multiplier="80:39" id="dxJ-iW-RyW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gew-Cu-D8m">
+                                <rect key="frame" x="322" y="820" width="64" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gew-Cu-D8m" secondAttribute="height" multiplier="32:15" id="PAe-M2-SPv"/>
+                                </constraints>
+                                <state key="normal" title="Distancia"/>
+                                <connections>
+                                    <action selector="distancia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sm9-Lv-rJE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c2O-gF-71y" secondAttribute="trailing" constant="10" id="5ci-aw-obN"/>
+                            <constraint firstItem="AhW-QA-OCm" firstAttribute="top" secondItem="2BS-B3-Itm" secondAttribute="bottom" constant="17" id="6pf-sL-U8F"/>
+                            <constraint firstItem="2BS-B3-Itm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="151" id="9Ge-bF-kno"/>
+                            <constraint firstItem="qJZ-Yp-O7L" firstAttribute="leading" secondItem="AhW-QA-OCm" secondAttribute="trailing" constant="27" id="AVZ-1Q-WFX"/>
+                            <constraint firstItem="7Pl-45-PUu" firstAttribute="top" secondItem="2BS-B3-Itm" secondAttribute="bottom" constant="17" id="BvW-EZ-LoH"/>
+                            <constraint firstItem="qJZ-Yp-O7L" firstAttribute="top" secondItem="2BS-B3-Itm" secondAttribute="bottom" constant="13" id="GUn-QV-L6p"/>
+                            <constraint firstItem="gew-Cu-D8m" firstAttribute="leading" secondItem="7Pl-45-PUu" secondAttribute="trailing" constant="47" id="MV3-24-6XZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gew-Cu-D8m" secondAttribute="trailing" constant="28" id="RcV-6b-w3N"/>
+                            <constraint firstItem="c2O-gF-71y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Vff-77-53o"/>
+                            <constraint firstItem="gew-Cu-D8m" firstAttribute="top" secondItem="2BS-B3-Itm" secondAttribute="bottom" constant="17" id="ZkW-Jv-Ers"/>
+                            <constraint firstItem="2BS-B3-Itm" firstAttribute="centerX" secondItem="c2O-gF-71y" secondAttribute="centerX" id="cg3-Za-lBP"/>
+                            <constraint firstItem="2BS-B3-Itm" firstAttribute="centerX" secondItem="kfh-D9-FKa" secondAttribute="centerX" id="dCW-Dl-OO9"/>
+                            <constraint firstItem="pjw-Ig-AkS" firstAttribute="top" secondItem="kfh-D9-FKa" secondAttribute="bottom" constant="18" id="hQB-XF-Dum"/>
+                            <constraint firstItem="2BS-B3-Itm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hZq-NR-pUA"/>
+                            <constraint firstItem="AhW-QA-OCm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jVJ-Er-Ete"/>
+                            <constraint firstItem="pjw-Ig-AkS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="kub-XQ-3V5"/>
+                            <constraint firstItem="c2O-gF-71y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="lE6-Ek-08g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pjw-Ig-AkS" secondAttribute="trailing" constant="60" id="rWo-lt-WCh"/>
+                            <constraint firstItem="2BS-B3-Itm" firstAttribute="top" secondItem="kfh-D9-FKa" secondAttribute="bottom" constant="8" symbolic="YES" id="xKW-Cr-qxd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblSearch" destination="pjw-Ig-AkS" id="jZs-xH-3jm"/>
+                        <outlet property="mapView" destination="2BS-B3-Itm" id="eaG-K8-QuY"/>
+                        <outlet property="searchBar" destination="c2O-gF-71y" id="h8t-RV-JLV"/>
+                        <outlet property="searchDisplayController" destination="wLR-JV-bOB" id="IYd-S4-nWA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="wLR-JV-bOB">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="32s-3f-afL"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="tm3-en-A3u"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="QZS-To-bqH"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="ZVj-4y-efv"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="131.91964285714286"/>
+        </scene>
+    </scenes>
+</document>
